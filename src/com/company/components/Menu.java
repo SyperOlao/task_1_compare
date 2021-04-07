@@ -1,19 +1,23 @@
 package com.company.components;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 public class Menu {
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private LinkedList<String> linkedList = new LinkedList<>();
 
     public static double getTimeAdd(int amountOfOperations, List<String> list){
-        long time = System.currentTimeMillis();
+        double time = System.currentTimeMillis();
         for (int i = 0; i <amountOfOperations ; i++) {
-            list.add(String.valueOf(new Random().nextInt(100)));
+            list.add(String.valueOf(new Random().nextInt(1000)));
         }
         return System.currentTimeMillis() - time;
     }
+
+    public static double getTimeDelete(int amountOfOperations, List<String> list){
+        if (amountOfOperations > list.size()) amountOfOperations = list.size();
+        double time = System.currentTimeMillis();
+        list.subList(0, amountOfOperations).clear();
+        return System.currentTimeMillis() - time;
+    }
+
 }
