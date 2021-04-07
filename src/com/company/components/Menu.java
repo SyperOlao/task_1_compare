@@ -20,4 +20,14 @@ public class Menu {
         return System.currentTimeMillis() - time;
     }
 
+    public static double getTimeGet(int amountOfOperations, List<String> list){
+        if (amountOfOperations > list.size()) amountOfOperations = list.size();
+        //Временный массив чтобы в него записывался метод гет
+        String[] temp_arr = new String[amountOfOperations];
+        double time = System.currentTimeMillis();
+        for (int i = 0; i < amountOfOperations; i++) {
+            temp_arr[i] = list.get(i);
+        }
+        return System.currentTimeMillis() - time;
+    }
 }
